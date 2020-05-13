@@ -22,13 +22,20 @@
     2. `2` - Juice.
     3. `3` - Soda.
 
-## Inserting money.
+## Usage
+
+### Inserting money.
 
 1. Run `docker exec php php artisan insertcoin <coinid>` to insert coins.
     - eg. `docker exec php php artisan insertcoin 4`.
 
-## Buying an item.
+### Buying an item.
 
 1. Once you have inserted enough money above you are able to buy and items via the command
     `docker exec php php artisan buyitem <itemid>`.
     - eg. `docker exec php php artisan buyitem 1` will attempt to purchase water.
+
+### Return coins.
+
+1. This will return all the inserted coins in the vending machine via the command
+    `docker exec php php artisan returncoins`.
