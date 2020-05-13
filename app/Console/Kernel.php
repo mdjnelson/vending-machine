@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use App\Console\Commands\BuyItem;
+use App\Console\Commands\InsertCoin;
+use App\Console\Commands\ReturnCoins;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +16,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\InsertCoin::class
+        InsertCoin::class,
+        ReturnCoins::class,
+        BuyItem::class
     ];
 
     /**
