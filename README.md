@@ -25,12 +25,12 @@
 
 ### Inserting money.
 
-1. Run `docker exec php php artisan insertcoin <coinid>` to insert coins.
-    - eg. `docker exec php php artisan insertcoin 4`.
+1. Run `docker exec php php artisan insertcoin <coinid>` to insert coins to buy an item.
+    - eg. `docker exec php php artisan insertcoin 4` will insert a dollar coin.
 
 ### Buying an item.
 
-1. Once you have inserted enough money above you are able to buy and items via the command
+1. Once you have inserted enough money you are able to buy items via the command
     `docker exec php php artisan buyitem <itemid>`.
     - eg. `docker exec php php artisan buyitem 1` will attempt to purchase water.
 
@@ -38,3 +38,12 @@
 
 1. This will return all the inserted coins in the vending machine via the command
     `docker exec php php artisan returncoins`.
+    
+### Servicing the machine.
+
+1. Adding more items to the machine can be done via the command
+    `docker exec php php artisan service:additem <itemid> <amount>`
+    - eg. `docker exec php php artisan service:additems 1 20` will insert 20 waters.
+2. Adding more coins to the machine can be done via the command
+    `docker exec php php artisan service:addcoin <coinid> <amount>`
+    - eg. `docker exec php php artisan service:addcoins 3 20` will insert 20 25 cents.
