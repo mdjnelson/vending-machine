@@ -6,7 +6,7 @@
 2. Run `git clone https://github.com/mdjnelson/vending-machine && cd vending-machine`.
 3. Run `docker run --rm -v $(pwd):/app composer install`.
 4. Run `docker-compose up -d --build`.
-5. Run `docker exec php php artisan migrate` to create the DB schema.
+5. Run `docker exec php php artisan migrate` to create the DB schema (if this fails it is due to the connection with the MySQL DB, please try again shortly).
 6. Run `docker exec php php artisan db:seed` to populate the DB with data.
 
 ### Note
