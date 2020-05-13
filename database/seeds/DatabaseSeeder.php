@@ -65,29 +65,5 @@ class DatabaseSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
-
-        // Add a bunch of coins to the vending machine to use as refunds.
-        $numberOfItems = rand(10, 100);
-        for ($i = 0; $i < $numberOfItems; $i++) {
-            $riid = array_rand($items);
-            // Insert a new record in the database
-            DB::table('vending_machine_items')->insert([
-                'item_id' => $items[$riid],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
-
-        // Add a bunch of items to the vending machine that users can buy.
-        $numberOfCoins = rand(50, 100);
-        for ($i = 0; $i < $numberOfCoins; $i++) {
-            $rcid = array_rand($coins);
-            // Insert a new record in the database
-            DB::table('vending_machine_coins')->insert([
-                'coin_id' => $coins[$rcid],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-        }
     }
 }
