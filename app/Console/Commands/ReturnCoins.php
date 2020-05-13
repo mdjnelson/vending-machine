@@ -3,8 +3,8 @@
 namespace App\Console\Commands;
 
 use App\InsertedCoins;
+use App\Helpers;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 
 class ReturnCoins extends Command
 {
@@ -39,17 +39,13 @@ class ReturnCoins extends Command
      */
     public function handle()
     {
-        $insertedCoins = InsertedCoins::all();
+        $insertedCoins = Helpers::getInsertedCoins();
 
         if ($insertedCoins->isEmpty()) {
             $this->info('No coins to return');
             return;
         }
 
-        $insertedCoins = DB::table('inserted_coins')
-            ->join('coins', 'inserted_coins.coin_id', '=', 'coins.id')
-            ->select('coins.value')
-            ->get();
         foreach ($insertedCoins as $coin) {
             $this->info('Returning ' . ($coin->value * 100) . ' cents');
         }

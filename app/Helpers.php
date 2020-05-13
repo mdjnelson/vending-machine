@@ -43,6 +43,19 @@ class Helpers {
     }
 
     /**
+     * Returns the inserted coins.
+     *
+     * @return \Illuminate\Support\Collection The value of inserted coins.
+     */
+    public static function getInsertedCoins()
+    {
+        return DB::table('inserted_coins')
+            ->join('coins', 'inserted_coins.coin_id', '=', 'coins.id')
+            ->select('coins.value')
+            ->get();
+    }
+
+    /**
      * Refunds the user money.
      *
      * @param float $itemValue
