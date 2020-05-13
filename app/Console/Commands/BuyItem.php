@@ -71,5 +71,7 @@ class BuyItem extends Command
 
         // Remove the item - it has been bought.
         $vmItem->delete();
+
+        $this->info($item->name . ' successfully bought');
     }
 }
