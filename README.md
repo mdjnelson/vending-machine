@@ -11,7 +11,7 @@
 
 ### Note
 
-1. These are a list of valid coins (coinid) the vending machine will accept.
+1. These are a list of valid coins the vending machine will accept.
     1. `1` - 5 cents.
     2. `2` - 10 cents.
     3. `3` - 25 cents.
@@ -20,8 +20,20 @@
     1. `1` - Water.
     2. `2` - Juice.
     3. `3` - Soda.
+    
+The command `docker exec php php artisan db:seed` will define the items that can be bought, and the coins that can
+be used. However, to fill the vending machine with items and coins please use the `service` commands listed below.
 
 ## Usage
+
+### Servicing the machine.
+
+1. Adding more items to the machine can be done via the command
+    `docker exec php php artisan service:additem <itemid> <amount>`
+    - eg. `docker exec php php artisan service:additems 1 20` will insert 20 waters.
+2. Adding more coins to the machine can be done via the command
+    `docker exec php php artisan service:addcoin <coinid> <amount>`
+    - eg. `docker exec php php artisan service:addcoins 3 20` will insert 20 25 cents.
 
 ### Inserting money.
 
@@ -38,12 +50,3 @@
 
 1. This will return all the inserted coins in the vending machine via the command
     `docker exec php php artisan returncoins`.
-    
-### Servicing the machine.
-
-1. Adding more items to the machine can be done via the command
-    `docker exec php php artisan service:additem <itemid> <amount>`
-    - eg. `docker exec php php artisan service:additems 1 20` will insert 20 waters.
-2. Adding more coins to the machine can be done via the command
-    `docker exec php php artisan service:addcoin <coinid> <amount>`
-    - eg. `docker exec php php artisan service:addcoins 3 20` will insert 20 25 cents.
