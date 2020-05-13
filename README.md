@@ -11,13 +11,12 @@
 
 ### Note
 
-1. There are a list of valid coins (coinid) the vending machine will accept.
-   These are -
+1. These are a list of valid coins (coinid) the vending machine will accept.
     1. `1` - 5 cents.
     2. `2` - 10 cents.
     3. `3` - 25 cents.
     4. `4` - 1 dollar.
-2. There are a list of valid items that the vending machine will stock.
+2. These are a list of valid items that the vending machine will stock.
     1. `1` - Water.
     2. `2` - Juice.
     3. `3` - Soda.
