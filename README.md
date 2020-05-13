@@ -17,8 +17,18 @@
     2. `2` - 10 cents.
     3. `3` - 25 cents.
     4. `4` - 1 dollar.
+2. There are a list of valid items that the vending machine will stock.
+    1. `1` - Water.
+    2. `2` - Juice.
+    3. `3` - Soda.
 
 ## Inserting money.
 
 1. Run `docker exec php php artisan insertcoin <coinid>` to insert coins.
-    - eg. `docker exec php php artisan insertcoin 4`
+    - eg. `docker exec php php artisan insertcoin 4`.
+
+## Buying an item.
+
+1. Once you have inserted enough money above you are able to buy and items via the command
+    `docker exec php php artisan buyitem <itemid>`.
+    - eg. `docker exec php php artisan buyitem 1` will attempt to purchase water.
