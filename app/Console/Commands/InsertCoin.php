@@ -47,9 +47,9 @@ class InsertCoin extends Command
             return;
         }
 
-        InsertedCoins::create([
-            'coin_id' => $coinID,
-        ]);
+        $insertCoin = new InsertedCoins();
+        $insertCoin->coin_id = $coinID;
+        $insertCoin->save();
 
         $this->info('Coin inserted successfully');
     }
